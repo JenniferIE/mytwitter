@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
+  resources :genres
+  resources :books
+  resources :books
+  #get 'sessions/new'
+  get 'users/new'
   #get 'static_pages/home'
 
   #get 'static_pages/help'
   #get 'static_pages/about'
   resources :users
+  resources :comments, only: [:create, :destroy]
   root 'static_pages#home'
 
   get 'help'    => 'static_pages#help'
